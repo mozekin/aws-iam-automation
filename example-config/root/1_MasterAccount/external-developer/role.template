@@ -1,0 +1,32 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "ExternalDeveloperRole": {
+      "Type": "AWS::IAM::Role",
+      "Condition": "MasterOnly",
+      "Properties": {
+        "RoleName": "external-developer",
+        "AssumeRolePolicyDocument": {
+          "Version": "2008-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRoleWithSAML",
+              "Effect": "Allow",
+              "Principal": {
+                "Federated": { "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:saml-provider/idp-sso-developer" }
+              },
+              "Condition": {
+                "StringEquals": {
+                  "SAML:aud": "https://signin.aws.amazon.com/saml"
+                }
+              }
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          { "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/external-developer" }
+        ]
+      }
+    }
+  }
+}

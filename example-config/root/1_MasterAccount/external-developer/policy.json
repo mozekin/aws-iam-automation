@@ -1,0 +1,11 @@
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Action": "sts:AssumeRole",
+        "Effect": "Allow",
+        "Resource": [
+            "arn:aws:iam::1234567890:role/external-developer",
+            "arn:aws:iam::9876543210:role/external-developer"
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+  "Parameters": {
+    "Master": {
+      "Description": "AWS Master Account Number",
+      "Type": "String",
+      "Default": "1234567890"
+    },
+    "Staging": {
+      "Description": "AWS Staging Account Number",
+      "Type": "String",
+      "Default": "9876543210"
+    }
+  },
+  "Mappings": {
+    "Accounts": {
+      "Master": {
+        "AccountId": "1234567890"
+      },
+      "Staging": {
+        "AccountId": "9876543210"
+      }
+    }
+  },
+  "Conditions": {
+    "MasterOnly"        : {"Fn::Equals" : [ { "Fn::FindInMap" : [ "Accounts", "Master", "AccountId" ] }, {"Ref": "AWS::AccountId"} ]},
+    "NotMaster"         : {"Fn::Not": [{"Condition": "MasterOnly"}]},
+    "StagingOnly"       : {"Fn::Equals" : [ { "Fn::FindInMap" : [ "Accounts", "Staging", "AccountId" ] }, {"Ref": "AWS::AccountId"} ]}
+  }
+}

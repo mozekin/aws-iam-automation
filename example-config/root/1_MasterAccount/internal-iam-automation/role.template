@@ -1,0 +1,36 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "InternalIamAutomationRole": {
+      "Type": "AWS::IAM::Role",
+      "Condition": "MasterOnly",
+      "Properties": {
+        "RoleName": "internal-iam-automation",
+        "AssumeRolePolicyDocument": {
+          "Version": "2008-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Sub": [
+                    "arn:aws:iam::${account_master_id}:role/internal-iam-automation",
+                    {
+                      "account_master_id": {
+                        "Fn::FindInMap": [ "Accounts", "Master", "AccountId" ]
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          { "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:policy/internal-iam-automation" }
+        ]
+      }
+    }
+  }
+}

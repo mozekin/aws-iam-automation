@@ -1,0 +1,32 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "iam:GetRole",
+        "iam:GetPolicy",
+        "iam:ListRolePolicies",
+        "iam:ListPolicyVersions",
+        "iam:ListAttachedRolePolicies",
+        "iam:CreateRole",
+        "iam:CreatePolicy",
+        "iam:CreatePolicyVersion",
+        "iam:AttachRolePolicy",
+        "iam:UpdateAssumeRolePolicy",
+        "iam:DeleteRole",
+        "iam:DetachRolePolicy",
+        "iam:DeletePolicyVersion",
+        "cloudformation:DescribeStacks",
+        "cloudformation:CreateStack",
+        "cloudformation:ValidateTemplate",
+        "cloudformation:DescribeChangeSet",
+        "cloudformation:CreateChangeSet",
+        "cloudformation:ExecuteChangeSet"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}

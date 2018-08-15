@@ -1,0 +1,34 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "rds:AddTagsToResource",
+        "rds:StartDBInstance",
+        "rds:StopDBInstance",
+        "rds:RebootDBInstance",
+        "rds:Describe*",
+        "rds:ListTagsForResource",
+        "ec2:List*",
+        "ec2:Describe*",
+        "ec2:RebootInstances",
+        "ec2:StartInstances",
+        "ec2:StopInstances",
+        "ec2:*SnapshotAttribute",
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:Generate*",
+        "kms:Get*",
+        "cloudwatch:*",
+        "sts:DecodeAuthorizationMessage",
+        "sts:GetFederationToken",
+        "sts:GetSessionToken",
+        "acm:*"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}

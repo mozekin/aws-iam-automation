@@ -1,0 +1,6 @@
+{
+    "AccountName" : "Master",
+    "AccountNumber" : "1234567890",
+    "Region" : "ap-southeast-2",
+    "EnactingRoleArn" : "arn:aws:iam::1234567890:role/internal-iam-automation"
+}

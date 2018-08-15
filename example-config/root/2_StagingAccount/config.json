@@ -1,0 +1,6 @@
+{
+    "AccountName" : "Staging",
+    "AccountNumber" : "9876543210",
+    "Region" : "ap-southeast-2",
+    "EnactingRoleArn" : "arn:aws:iam::9876543210:role/internal-iam-automation"
+}
